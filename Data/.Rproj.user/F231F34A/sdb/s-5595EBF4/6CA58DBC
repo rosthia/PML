@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1427065284767.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "6CA58DBC",
+    "lastKnownWriteTime" : 140451329477264,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "crossValidation",
+        "contentUrl" : "content?title=crossValidation&file=45edd6281c844fddac70c97bc9e39dc9.htm",
+        "displayedObservations" : 1000,
+        "displayedVariables" : 29,
+        "totalObservations" : 4904,
+        "variables" : 28
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

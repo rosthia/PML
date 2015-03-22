@@ -1,0 +1,16 @@
+{
+    "contents" : "rm(list = ls(all = TRUE))\nsetwd('~/PracticalMachineLearning/Data/PracticalMachineLearning')\nlibrary(caret)\ntrainingRaw <- read.csv(file=\"pml-training.csv\", header=TRUE, as.is = TRUE, stringsAsFactors = FALSE, sep=',', na.strings=c('NA','','#DIV/0!'))\ntestingRaw <- read.csv(file=\"pml-testing.csv\", header=TRUE, as.is = TRUE, stringsAsFactors = FALSE, sep=',', na.strings=c('NA','','#DIV/0!'))\ntrainingRaw$classe <- as.factor(trainingRaw$classe)\nNAindex <- apply(trainingRaw,2,function(x) {sum(is.na(x))})\ntrainingRaw <- trainingRaw[,which(NAindex == 0)]\nNAindex <- apply(testingRaw,2,function(x) {sum(is.na(x))})\ntestingRaw <- testingRaw[,which(NAindex == 0)]\nv <- which(lapply(trainingRaw, class) %in% \"numeric\")\npreObj <-preProcess(trainingRaw[,v],method=c('knnImpute', 'center', 'scale'))\ntrainLess1 <- predict(preObj, trainingRaw[,v])\ntrainLess1$classe <- trainingRaw$classe\ntestLess1 <-predict(preObj,testingRaw[,v])\nnzv <- nearZeroVar(trainLess1,saveMetrics=TRUE)\ntrainLess1 <- trainLess1[,nzv$nzv==FALSE]\nnzv <- nearZeroVar(testLess1,saveMetrics=TRUE)\ntestLess1 <- testLess1[,nzv$nzv==FALSE]\nset.seed(12031987)\ninTrain = createDataPartition(trainLess1$classe, p = 3/4, list=FALSE)\ntraining = trainLess1[inTrain,]\ncrossValidation = trainLess1[-inTrain,]\nmodFit <- train(classe ~., method=\"rf\", data=train, trControl=trainControl(method='cv'), number=5, allowParallel=TRUE )\ntrainingPred <- predict(modFit, training)\nconfusionMatrix(trainingPred, training$classe)\nset.seed(12031987)\ninTrain = createDataPartition(trainLess1$classe, p = 3/4, list=FALSE)\ntraining = trainLess1[inTrain,]\ncrossValidation = trainLess1[-inTrain,]\nmodFit <- train(classe ~., method=\"rf\", data=train, trControl=trainControl(method='cv'), number=5, allowParallel=TRUE )\ntrainingPred <- predict(modFit, training)\nmodFit <- train(classe ~., method=\"rf\", data=train, trControl=trainControl(method='cv'), number=5, allowParallel=TRUE )\ntrainingPred <- predict(modFit, training)\nconfusionMatrix(trainingPred, training$classe)\ncvPred <- predict(modFit, crossValidation)\nconfusionMatrix(cvPred, crossValidation$classe)\ntestingPred <- predict(modFit, testLess1)\ntestingPred\nView(crossValidation)\nView(nzv)\nView(testingRaw)\nView(testLess1)\nView(training)\nView(trainingRaw)\nView(trainLess1)\n",
+    "created" : 1427065270731.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "920637879",
+    "id" : "C9AC2ABD",
+    "lastKnownWriteTime" : 1427065173,
+    "path" : "~/PracticalMachineLearning/Data/.Rhistory",
+    "project_path" : ".Rhistory",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_history"
+}

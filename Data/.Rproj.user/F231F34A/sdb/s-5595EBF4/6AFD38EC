@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1427065282900.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "6AFD38EC",
+    "lastKnownWriteTime" : 7089008195389095937,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "nzv",
+        "contentUrl" : "content?title=nzv&file=94fd9a51d27c4c6295aeabc1fd773105.htm",
+        "displayedObservations" : 27,
+        "displayedVariables" : 5,
+        "totalObservations" : 27,
+        "variables" : 4
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

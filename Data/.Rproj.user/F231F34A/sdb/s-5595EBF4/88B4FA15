@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1427065281983.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "88B4FA15",
+    "lastKnownWriteTime" : 140451299157552,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "testingRaw",
+        "contentUrl" : "content?title=testingRaw&file=9aec640fd7244be7ab444f53a6c71b98.htm",
+        "displayedObservations" : 20,
+        "displayedVariables" : 60,
+        "totalObservations" : 20,
+        "variables" : 60
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
